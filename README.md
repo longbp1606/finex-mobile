@@ -3,7 +3,7 @@
 ## 📁 Project Structure Overview
 
 ```
-MyAndroidApp/
+FinexApp/
 ├── app/
 │   ├── src/
 │   │   ├── main/
