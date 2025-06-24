@@ -10,7 +10,7 @@
     android:paddingBottom="4dp">
 
     <TextView
-        android:id="@+id/subscriptionName"
+        android:id="@+id/userSubscriptionName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Subscription Name"
@@ -20,22 +20,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/subscriptionPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="20 USD / Month"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/subscriptionName" />
-
-    <TextView
-        android:id="@+id/subscriptionDescription"
+        android:id="@+id/userSupscriptionStartTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="This is subscription description"
+        android:text="From: 10:00 24/06/2025"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/subscriptionPrice" />
+        app:layout_constraintTop_toBottomOf="@id/userSubscriptionName" />
 
+    <TextView
+        android:id="@+id/userSubscriptionEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="To: 10:00 24/07/2025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userSupscriptionStartTime" />
 </androidx.constraintlayout.widget.ConstraintLayout>

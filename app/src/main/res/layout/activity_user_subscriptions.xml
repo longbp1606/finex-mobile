@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserSubscriptions">
+    tools:context=".screens.user_subscriptions.UserSubscriptions">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -36,8 +36,8 @@
             android:text="My Subscriptions" />
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/mainScrollView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
@@ -47,12 +47,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@id/linearLayout">
 
-        <LinearLayout
-            android:id="@+id/scrollContainer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" />
-    </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

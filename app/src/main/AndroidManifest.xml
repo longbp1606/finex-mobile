@@ -13,7 +13,13 @@
         android:theme="@style/Theme.Finexmobile"
         tools:targetApi="31">
         <activity
-            android:name=".UserSubscriptions"
+            android:name=".screens.admin_subscriptions.AdminManageSubscriptions"
+            android:exported="true" />
+        <activity
+            android:name=".screens.user_subscriptions.SubscriptionDetail"
+            android:exported="false" />
+        <activity
+            android:name=".screens.user_subscriptions.UserSubscriptions"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

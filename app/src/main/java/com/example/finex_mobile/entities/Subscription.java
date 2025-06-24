@@ -1,4 +1,4 @@
-package com.example.finex_mobile;
+package com.example.finex_mobile.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,15 @@ public class Subscription {
     public static List<Subscription> getSupscriptionList() {
         if (supscriptionList == null) {
             supscriptionList = new ArrayList<>();
+            supscriptionList.add(new Subscription("Subscription 1", 20, "This is subscription description"));
+            supscriptionList.add(new Subscription("Subscription 2", 20, "This is subscription description"));
+            supscriptionList.add(new Subscription("Subscription 3", 20, "This is subscription description"));
+            supscriptionList.add(new Subscription("Subscription 1", 20, "This is subscription description"));
+            supscriptionList.add(new Subscription("Subscription 2", 20, "This is subscription description"));
+            supscriptionList.add(new Subscription("Subscription 3", 20, "This is subscription description"));
+            supscriptionList.add(new Subscription("Subscription 1", 20, "This is subscription description"));
+            supscriptionList.add(new Subscription("Subscription 2", 20, "This is subscription description"));
+            supscriptionList.add(new Subscription("Subscription 3", 20, "This is subscription description"));
             supscriptionList.add(new Subscription("Subscription 1", 20, "This is subscription description"));
             supscriptionList.add(new Subscription("Subscription 2", 20, "This is subscription description"));
             supscriptionList.add(new Subscription("Subscription 3", 20, "This is subscription description"));

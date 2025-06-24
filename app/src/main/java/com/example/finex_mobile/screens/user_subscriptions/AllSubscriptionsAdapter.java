@@ -1,4 +1,4 @@
-package com.example.finex_mobile;
+package com.example.finex_mobile.screens.user_subscriptions;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.finex_mobile.R;
+import com.example.finex_mobile.entities.Subscription;
 
 import java.util.List;
 
@@ -45,8 +48,8 @@ public class AllSubscriptionsAdapter extends BaseAdapter {
         subscriptionName.setText(subscription.getName());
         TextView subscriptionPrice = view.findViewById(R.id.subscriptionPrice);
         subscriptionPrice.setText(subscription.getPrice() + " USD / Month");
-        TextView subscriptionTime = view.findViewById(R.id.subscriptionTime);
-        subscriptionTime.setText(subscription.getDescription());
+        TextView subscriptionDescription = view.findViewById(R.id.subscriptionDescription);
+        subscriptionDescription.setText(subscription.getDescription());
 
         return view;
     }
