@@ -42,7 +42,7 @@ public class AllSubscriptionsAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.subscription_item, viewGroup, false);
         }
 
-        Subscription subscription = Subscription.getSupscriptionList().get(i);
+        Subscription subscription = subscriptionList.get(i);
 
         TextView subscriptionName = view.findViewById(R.id.subscriptionName);
         subscriptionName.setText(subscription.getName());
