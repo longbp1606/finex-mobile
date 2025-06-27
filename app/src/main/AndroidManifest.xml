@@ -10,8 +10,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Finexmobile"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
         tools:targetApi="31">
+        <activity
+            android:name=".screens.admin_subscriptions.SubscriptionForm"
+            android:exported="false" />
+        <activity
+            android:name=".screens.admin_subscriptions.AdminManageSubscriptions"
+            android:exported="true" />
+        <activity
+            android:name=".screens.user_subscriptions.SubscriptionDetail"
+            android:exported="false" />
+        <activity
+            android:name=".screens.user_subscriptions.UserSubscriptions"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
