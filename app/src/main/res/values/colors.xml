@@ -2,4 +2,17 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary_color">#18453E</color>
+    <color name="secondary_color">#BCF49D</color>
+    <color name="tertiary_color">#C3CFC4</color>
+    <color name="quaternary_color">#E3F3DA</color>
+    <color name="quinary_color">#FAFAFB</color>
+    <color name="senary_color">#F2F4F2</color>
+    <color name="done">#1BC47D</color>
+    <color name="done_background">#A6E8CC</color>
+    <color name="processing">#FFC700</color>
+    <color name="cancel">#FF2942</color>
+    <color name="gray_background">#E5E5E5</color>
+    <color name="blue">#2196F3</color>
+    <color name="blue_background">#BBDEFB</color>
 </resources>
