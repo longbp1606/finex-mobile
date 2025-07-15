@@ -24,6 +24,11 @@
         <activity
             android:name=".screens.user_subscriptions.UserSubscriptions"
             android:exported="true" />
+
+        <activity
+            android:name=".screens.user_subscriptions.SavingsGoalsActivity"
+            android:exported="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
