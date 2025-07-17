@@ -38,7 +38,7 @@ public class SavingsGoalsActivity extends AppCompatActivity
     private LinearLayout emptyState;
 
     // Header views
-    private ImageView ivBack, ivFilter, ivSearch;
+    private ImageView ivFilter, ivSearch;
 
     // Summary cards
     private TextView tvTotalSaved, tvOverallProgress, tvActiveGoals;
@@ -71,7 +71,7 @@ public class SavingsGoalsActivity extends AppCompatActivity
         emptyState = findViewById(R.id.empty_state);
 
         // Header views
-        ivBack = findViewById(R.id.ic_back);
+        ivFilter = findViewById(R.id.ic_filter);
         ivSearch = findViewById(R.id.ic_search);
 
         // Summary cards
@@ -197,7 +197,10 @@ public class SavingsGoalsActivity extends AppCompatActivity
 
     private void setupClickListeners() {
         fabAddGoal.setOnClickListener(v -> showCreateGoalDialog());
-        ivBack.setOnClickListener(v -> onBackPressed());
+        ivFilter.setOnClickListener(v -> {
+            // ví dụ: hiện menu xuôi lọc
+            showCategoryFilter();
+        });
         ivSearch.setOnClickListener(v -> showSearchDialog());
     }
 

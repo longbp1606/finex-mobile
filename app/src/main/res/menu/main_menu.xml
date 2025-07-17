@@ -1,23 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_savings_goals"
-        android:title="Savings Goals"
-        android:icon="@drawable/ic_add"
-        app:showAsAction="never" />
+        android:id="@+id/nav_analysis"
+        android:icon="@drawable/ic_analysis"
+        android:title="Analysis"
+        app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/menu_settings"
-        android:title="Settings"
-        android:icon="@drawable/ic_bank"
-        app:showAsAction="never" />
+        android:id="@+id/nav_saving"
+        android:icon="@drawable/ic_saving"
+        android:title="Saving"
+        app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/menu_help"
-        android:title="Help"
-        android:icon="@drawable/ic_book"
-        app:showAsAction="never" />
+        android:id="@+id/nav_advice"
+        android:icon="@drawable/ic_advice"
+        android:title="Advice"
+        app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile"
+        app:showAsAction="ifRoom" />
 </menu>
