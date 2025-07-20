@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="#FFF"
+    android:gravity="center_vertical"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/text_no"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textStyle="bold"
+        android:textColor="#888"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/text_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Transaction content"
+        android:textColor="#222"
+        android:textSize="15sp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp" />
+
+    <TextView
+        android:id="@+id/text_created_at"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2025-07-20"
+        android:textColor="#888"
+        android:textSize="13sp"
+        android:paddingEnd="12dp" />
+
+    <TextView
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:textColor="#00796B"
+        android:textStyle="bold"
+        android:paddingEnd="12dp"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:textColor="#D32F2F"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true" />
+
+</LinearLayout> 

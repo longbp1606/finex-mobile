@@ -25,7 +25,7 @@ public class CategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
 
         recyclerView = findViewById(R.id.recycler_category);
-        progressBar = findViewById(R.id.progress_bar);
+//        progressBar = findViewById(R.id.progress_bar);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new CategoryAdapter(new ArrayList<>());

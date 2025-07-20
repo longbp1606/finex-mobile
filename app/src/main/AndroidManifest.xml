@@ -38,6 +38,14 @@
             android:exported="true" />
 
         <activity
+            android:name=".screens.user_subscriptions.BudgetActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".screens.user_subscriptions.TransactionActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
