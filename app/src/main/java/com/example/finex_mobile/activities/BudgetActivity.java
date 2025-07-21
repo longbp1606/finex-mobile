@@ -49,6 +49,7 @@ public class BudgetActivity extends AppCompatActivity implements BudgetAdapter.O
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_budget);
+        setTitle("Budget");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.budget_main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
