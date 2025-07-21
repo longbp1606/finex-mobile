@@ -1,4 +1,4 @@
-package com.example.finex_mobile.screens.user_subscriptions;
+package com.example.finex_mobile.activities.subscription.user;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,9 +22,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finex_mobile.R;
-import com.example.finex_mobile.activities.BillActivity;
-import com.example.finex_mobile.activities.BudgetActivity;
-import com.example.finex_mobile.activities.SavingsGoalsActivity;
+import com.example.finex_mobile.activities.bill.BillActivity;
+import com.example.finex_mobile.activities.budget.BudgetActivity;
+import com.example.finex_mobile.activities.saving.SavingsGoalsActivity;
 import com.example.finex_mobile.adapters.AllSubscriptionsAdapter;
 import com.example.finex_mobile.adapters.MySubscriptionsAdapter;
 import com.example.finex_mobile.entities.subcription.Subscription;

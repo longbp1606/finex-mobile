@@ -1,4 +1,4 @@
-package com.example.finex_mobile.screens.user_subscriptions;
+package com.example.finex_mobile.activities.subscription.user;
 
 import android.os.Bundle;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.example.finex_mobile.activities;
+package com.example.finex_mobile.activities.transactions;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;

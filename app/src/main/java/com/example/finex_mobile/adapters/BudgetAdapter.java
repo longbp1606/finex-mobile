@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finex_mobile.R;
 import com.example.finex_mobile.entities.budget.Budget;
-import com.example.finex_mobile.activities.TransactionActivity;
+import com.example.finex_mobile.activities.transactions.TransactionActivity;
 
 import java.util.List;
 import android.graphics.Paint;

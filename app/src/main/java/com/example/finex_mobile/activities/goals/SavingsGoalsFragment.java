@@ -1,4 +1,4 @@
-package com.example.finex_mobile.screens.goals;
+package com.example.finex_mobile.activities.goals;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;

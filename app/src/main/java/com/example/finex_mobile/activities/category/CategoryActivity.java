@@ -1,4 +1,4 @@
-package com.example.finex_mobile.activities;
+package com.example.finex_mobile.activities.category;
 
 import android.os.Bundle;
 import android.widget.EditText;

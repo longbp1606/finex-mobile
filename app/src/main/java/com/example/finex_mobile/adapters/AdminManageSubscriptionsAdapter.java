@@ -1,4 +1,4 @@
-package com.example.finex_mobile.screens.admin_subscriptions;
+package com.example.finex_mobile.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
