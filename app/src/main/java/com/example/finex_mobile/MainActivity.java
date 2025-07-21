@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             boolean isLoggedIn = sharedPreferences.getBoolean("IS_LOGGED_IN", false);
             Intent intent;
-            intent = new Intent(MainActivity.this, SavingsGoalsActivity.class);
+            intent = new Intent(MainActivity.this, com.example.finex_mobile.screens.user_subscriptions.BudgetActivity.class);
 //            if (isLoggedIn) {
 //                intent = new Intent(MainActivity.this, AnalysisActivity.class);
 //            } else {

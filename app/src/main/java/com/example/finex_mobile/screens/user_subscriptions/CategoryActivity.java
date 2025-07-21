@@ -33,6 +33,7 @@ public class CategoryActivity extends AppCompatActivity implements CategoryAdapt
 
         recycler.setLayoutManager(new LinearLayoutManager(this));
         loadData();
+//        progressBar = findViewById(R.id.progress_bar);
 
         btnAdd.setOnClickListener(v -> showDialog(null));
     }
