@@ -1,8 +1,10 @@
 package com.example.finex_mobile.activities.bill;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +28,10 @@ import com.example.finex_mobile.adapters.BillAdapter;
 import com.example.finex_mobile.activities.subscription.user.UserSubscriptions;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
+
 public class BillActivity extends AppCompatActivity implements BillAdapter.OnBillActionListener {
     private List<Bill> bills = new ArrayList<>();
     private BillAdapter adapter;
@@ -112,6 +117,17 @@ public class BillActivity extends AppCompatActivity implements BillAdapter.OnBil
         EditText edtAmount = dialogView.findViewById(R.id.edt_amount);
         EditText edtDueDate = dialogView.findViewById(R.id.edt_due_date);
 
+        // 1. Không cho bật bàn phím, chỉ để bắt sự kiện click/focus
+        edtDueDate.setInputType(InputType.TYPE_NULL);
+        edtDueDate.setFocusable(false);
+
+        // 2. Bắt click và focus để show DatePicker
+        View.OnClickListener pickDateListener = v -> showDatePicker(edtDueDate);
+        edtDueDate.setOnClickListener(pickDateListener);
+        edtDueDate.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) showDatePicker(edtDueDate);
+        });
+
         if (bill != null) {
             edtName.setText(bill.getName());
             edtCategory.setText(bill.getCategory());
@@ -147,6 +163,39 @@ public class BillActivity extends AppCompatActivity implements BillAdapter.OnBil
                 })
                 .setNegativeButton("Cancel", null)
                 .show();
+    }
+
+    private void showDatePicker(final EditText target) {
+        // Lấy ngày hiện tại hoặc parse từ target nếu đã có
+        Calendar cal = Calendar.getInstance();
+        String existing = target.getText().toString();
+        if (!existing.isEmpty()) {
+            // nếu định dạng yyyy-MM-dd, parse lại
+            try {
+                String[] parts = existing.split("-");
+                int y = Integer.parseInt(parts[0]);
+                int m = Integer.parseInt(parts[1]) - 1;
+                int d = Integer.parseInt(parts[2]);
+                cal.set(y, m, d);
+            } catch (Exception ignore) {}
+        }
+
+        DatePickerDialog dpd = new DatePickerDialog(
+                this,
+                (view, year, month, dayOfMonth) -> {
+                    // Format thành yyyy-MM-dd
+                    String formatted = String.format(
+                            Locale.getDefault(),
+                            "%04d-%02d-%02d",
+                            year, month + 1, dayOfMonth
+                    );
+                    target.setText(formatted);
+                },
+                cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH),
+                cal.get(Calendar.DAY_OF_MONTH)
+        );
+        dpd.show();
     }
 
     @Override
