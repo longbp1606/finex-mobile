@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.finex_mobile.R;
-import com.example.finex_mobile.entities.Subscription;
+import com.example.finex_mobile.entities.subcription.Subscription;
 
 import java.util.List;
 

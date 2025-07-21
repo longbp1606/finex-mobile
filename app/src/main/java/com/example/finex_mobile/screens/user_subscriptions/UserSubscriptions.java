@@ -19,9 +19,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finex_mobile.R;
-import com.example.finex_mobile.entities.Subscription;
-import com.example.finex_mobile.entities.User;
-import com.example.finex_mobile.entities.UserSubscription;
+import com.example.finex_mobile.adapters.AllSubscriptionsAdapter;
+import com.example.finex_mobile.adapters.MySubscriptionsAdapter;
+import com.example.finex_mobile.entities.subcription.Subscription;
+import com.example.finex_mobile.entities.user.User;
+import com.example.finex_mobile.entities.subcription.UserSubscription;
 
 public class UserSubscriptions extends AppCompatActivity {
     private ConstraintLayout mainLayout;

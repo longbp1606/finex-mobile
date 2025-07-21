@@ -4,15 +4,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
-import android.view.MenuItem;
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.finex_mobile.screens.user_subscriptions.SavingsGoalsActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.finex_mobile.activities.BudgetActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(() -> {
             boolean isLoggedIn = sharedPreferences.getBoolean("IS_LOGGED_IN", false);
             Intent intent;
-            intent = new Intent(MainActivity.this, com.example.finex_mobile.screens.user_subscriptions.BudgetActivity.class);
+            intent = new Intent(MainActivity.this, BudgetActivity.class);
 //            if (isLoggedIn) {
 //                intent = new Intent(MainActivity.this, AnalysisActivity.class);
 //            } else {

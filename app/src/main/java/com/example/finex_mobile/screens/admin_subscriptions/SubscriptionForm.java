@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finex_mobile.R;
-import com.example.finex_mobile.entities.Subscription;
+import com.example.finex_mobile.entities.subcription.Subscription;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class SubscriptionForm extends AppCompatActivity {

@@ -1,6 +1,5 @@
 package com.example.finex_mobile.screens.user_subscriptions;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -12,7 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finex_mobile.R;
-import com.example.finex_mobile.entities.Subscription;
+import com.example.finex_mobile.entities.subcription.Subscription;
 
 public class SubscriptionDetail extends AppCompatActivity {
     private Subscription currentSubscription;

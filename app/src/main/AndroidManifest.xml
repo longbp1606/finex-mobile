@@ -26,25 +26,25 @@
             android:exported="true" />
 
         <activity
-            android:name=".screens.user_subscriptions.SavingsGoalsActivity"
+            android:name=".activities.SavingsGoalsActivity"
             android:exported="true" />
 
         <activity
-            android:name=".screens.user_subscriptions.BillActivity"
+            android:name=".activities.BillActivity"
             android:exported="true" />
 
         <activity
-            android:name=".screens.user_subscriptions.CategoryActivity"
+            android:name=".activities.CategoryActivity"
 
             android:exported="true"
             android:theme="@style/Base.Theme.Finexmobile"
             />
         <activity
-            android:name=".screens.user_subscriptions.BudgetActivity"
+            android:name=".activities.BudgetActivity"
             android:exported="true" />
 
         <activity
-            android:name=".screens.user_subscriptions.TransactionActivity"
+            android:name=".activities.TransactionActivity"
             android:exported="true" />
 
         <activity

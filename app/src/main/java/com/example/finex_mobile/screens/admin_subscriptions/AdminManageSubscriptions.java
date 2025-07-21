@@ -3,9 +3,7 @@ package com.example.finex_mobile.screens.admin_subscriptions;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,7 +23,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finex_mobile.R;
-import com.example.finex_mobile.entities.Subscription;
+import com.example.finex_mobile.entities.subcription.Subscription;
 
 public class AdminManageSubscriptions extends AppCompatActivity {
     private AdminManageSubscriptionsAdapter adminManageSubscriptionsAdapter;
