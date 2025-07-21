@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.finex_mobile.R;
-import com.example.finex_mobile.screens.goals.SavingsGoalsFragment;
+import com.example.finex_mobile.activities.goals.SavingsGoalsFragment;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

@@ -1,4 +1,4 @@
-package com.example.finex_mobile.screens.admin_subscriptions;
+package com.example.finex_mobile.activities.subscription.admin;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,6 +23,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finex_mobile.R;
+import com.example.finex_mobile.adapters.AdminManageSubscriptionsAdapter;
 import com.example.finex_mobile.entities.subcription.Subscription;
 
 public class AdminManageSubscriptions extends AppCompatActivity {

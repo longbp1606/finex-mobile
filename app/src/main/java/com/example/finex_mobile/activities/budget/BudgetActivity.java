@@ -1,4 +1,4 @@
-package com.example.finex_mobile.activities;
+package com.example.finex_mobile.activities.budget;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +18,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finex_mobile.R;
+import com.example.finex_mobile.activities.saving.SavingsGoalsActivity;
+import com.example.finex_mobile.activities.bill.BillActivity;
 import com.example.finex_mobile.entities.budget.Budget;
 import com.example.finex_mobile.database.BudgetDatabaseHelper;
 import com.example.finex_mobile.adapters.BudgetAdapter;
-import com.example.finex_mobile.screens.user_subscriptions.UserSubscriptions;
+import com.example.finex_mobile.activities.subscription.user.UserSubscriptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.app.AlertDialog;

@@ -1,4 +1,4 @@
-package com.example.finex_mobile.screens.admin_subscriptions;
+package com.example.finex_mobile.activities.subscription.admin;
 
 import android.os.Bundle;
 import android.view.View;

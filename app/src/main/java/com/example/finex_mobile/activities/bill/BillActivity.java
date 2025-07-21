@@ -1,4 +1,4 @@
-package com.example.finex_mobile.activities;
+package com.example.finex_mobile.activities.bill;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -19,9 +19,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finex_mobile.R;
+import com.example.finex_mobile.activities.budget.BudgetActivity;
+import com.example.finex_mobile.activities.saving.SavingsGoalsActivity;
 import com.example.finex_mobile.entities.bill.Bill;
 import com.example.finex_mobile.adapters.BillAdapter;
-import com.example.finex_mobile.screens.user_subscriptions.UserSubscriptions;
+import com.example.finex_mobile.activities.subscription.user.UserSubscriptions;
 
 import java.util.ArrayList;
 import java.util.List;
