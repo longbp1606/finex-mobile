@@ -1,13 +1,22 @@
 package com.example.finex_mobile.activities;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.finex_mobile.R;
@@ -20,6 +29,7 @@ import com.example.finex_mobile.entities.saving_goals.RecentContribution;
 import com.example.finex_mobile.screens.goals.AddContributionDialog;
 import com.example.finex_mobile.screens.goals.GoalDialog;
 import com.example.finex_mobile.adapters.SavingsGoalAdapter;
+import com.example.finex_mobile.screens.user_subscriptions.UserSubscriptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -41,9 +51,6 @@ public class SavingsGoalsActivity extends AppCompatActivity
     private FloatingActionButton fabAddGoal;
     private LinearLayout emptyState;
 
-    // Header views
-    private ImageView ivFilter, ivSearch;
-
     // Summary cards
     private TextView tvTotalSaved, tvOverallProgress, tvActiveGoals;
 
@@ -54,7 +61,13 @@ public class SavingsGoalsActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_savings_goals);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.savings), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
         initViews();
         initData();
@@ -63,20 +76,36 @@ public class SavingsGoalsActivity extends AppCompatActivity
         setupTabListeners();
         updateSummaryCards();
         checkEmptyState();
+    }
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.finex_mobile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.finex_menu_subscription) {
+            Intent intent = new Intent(this, UserSubscriptions.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_budget) {
+            Intent intent = new Intent(this, BudgetActivity.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_saving_goal) {
+            Intent intent = new Intent(this, SavingsGoalsActivity.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_bill) {
+            Intent intent = new Intent(this, BillActivity.class);
+            startActivity(intent);
         }
+        return false;
     }
 
     private void initViews() {
         recyclerView = findViewById(R.id.rv_savings_goals);
         fabAddGoal = findViewById(R.id.fab_add_goal);
         emptyState = findViewById(R.id.empty_state);
-
-        // Header views
-        ivFilter = findViewById(R.id.ic_filter);
-        ivSearch = findViewById(R.id.ic_search);
 
         // Summary cards
         tvTotalSaved = findViewById(R.id.tv_total_saved);
@@ -201,11 +230,11 @@ public class SavingsGoalsActivity extends AppCompatActivity
 
     private void setupClickListeners() {
         fabAddGoal.setOnClickListener(v -> showCreateGoalDialog());
-        ivFilter.setOnClickListener(v -> {
-            // ví dụ: hiện menu xuôi lọc
-            showCategoryFilter();
-        });
-        ivSearch.setOnClickListener(v -> showSearchDialog());
+//        ivFilter.setOnClickListener(v -> {
+//            // ví dụ: hiện menu xuôi lọc
+//            showCategoryFilter();
+//        });
+//        ivSearch.setOnClickListener(v -> showSearchDialog());
     }
 
     private void setupTabListeners() {

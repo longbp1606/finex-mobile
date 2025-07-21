@@ -1,9 +1,7 @@
 <resources>
-    <string name="app_name">finex-mobile</string>
+    <string name="app_name">FinEx Mobile</string>
     <string name="appbar_scrolling_view_behavior">
     com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior
 </string>
     <string name="add_budget">Thêm ngân sách</string>
-
-
 </resources>

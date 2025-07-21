@@ -3,6 +3,8 @@ package com.example.finex_mobile.screens.user_subscriptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -12,6 +14,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
@@ -19,6 +22,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finex_mobile.R;
+import com.example.finex_mobile.activities.BillActivity;
+import com.example.finex_mobile.activities.BudgetActivity;
+import com.example.finex_mobile.activities.SavingsGoalsActivity;
 import com.example.finex_mobile.adapters.AllSubscriptionsAdapter;
 import com.example.finex_mobile.adapters.MySubscriptionsAdapter;
 import com.example.finex_mobile.entities.subcription.Subscription;
@@ -53,6 +59,30 @@ public class UserSubscriptions extends AppCompatActivity {
         subscriptionDetailLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), this::handleSubscriptionDetailActivityResult);
 
         changeToAllSubscriptionsTab();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.finex_mobile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.finex_menu_subscription) {
+            Intent intent = new Intent(this, UserSubscriptions.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_budget) {
+            Intent intent = new Intent(this, BudgetActivity.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_saving_goal) {
+            Intent intent = new Intent(this, SavingsGoalsActivity.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_bill) {
+            Intent intent = new Intent(this, BillActivity.class);
+            startActivity(intent);
+        }
+        return false;
     }
 
     private void changeTab(Integer tab) {

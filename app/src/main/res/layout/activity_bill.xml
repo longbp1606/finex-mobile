@@ -1,30 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bill_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5">
 
     <!-- Header -->
-    <LinearLayout
-        android:id="@+id/header_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:background="@color/white"
-        android:elevation="4dp"
-        app:layout_anchorGravity="top">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="My Bills"
-            android:textColor="@color/primary_color"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
 
     <!-- Summary cards -->
     <LinearLayout
@@ -34,17 +16,16 @@
         android:orientation="horizontal"
         android:padding="16dp"
         app:layout_anchorGravity="top"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_marginTop="72dp">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
             app:cardBackgroundColor="@color/white"
-            android:layout_marginEnd="8dp">
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -74,11 +55,11 @@
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
             app:cardBackgroundColor="@color/white"
-            android:layout_marginStart="8dp">
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -111,8 +92,8 @@
         android:id="@+id/recycler_bills"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="96dp"
         android:padding="16dp"
-        android:layout_marginTop="168dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <!-- Add button -->
@@ -120,11 +101,11 @@
         android:id="@+id/btn_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_add"
-        app:backgroundTint="@color/primary_color"
+        android:layout_margin="24dp"
         android:tint="@android:color/white"
+        app:backgroundTint="@color/primary_color"
         app:layout_anchor="@id/recycler_bills"
         app:layout_anchorGravity="bottom|end"
-        android:layout_margin="24dp"/>
+        app:srcCompat="@drawable/ic_add" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/finex_menu_budget"
+        android:title="Budget" />
+    <item
+        android:id="@+id/finex_menu_bill"
+        android:title="Bill" />
+    <item
+        android:id="@+id/finex_menu_subscription"
+        android:title="Subscription" />
+    <item
+        android:id="@+id/finex_menu_saving_goal"
+        android:title="Saving Goal" />
+</menu>

@@ -1,18 +1,27 @@
 package com.example.finex_mobile.activities;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finex_mobile.R;
 import com.example.finex_mobile.entities.bill.Bill;
 import com.example.finex_mobile.adapters.BillAdapter;
+import com.example.finex_mobile.screens.user_subscriptions.UserSubscriptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +35,15 @@ public class BillActivity extends AppCompatActivity implements BillAdapter.OnBil
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_bill);
+        setTitle("My Bills");
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.bill_main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
 
         totalText = findViewById(R.id.text_total);
         unpaidText = findViewById(R.id.text_unpaid);
@@ -40,6 +57,31 @@ public class BillActivity extends AppCompatActivity implements BillAdapter.OnBil
 
         loadDummyData();
         updateSummary();
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.finex_mobile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.finex_menu_subscription) {
+            Intent intent = new Intent(this, UserSubscriptions.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_budget) {
+            Intent intent = new Intent(this, BudgetActivity.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_saving_goal) {
+            Intent intent = new Intent(this, SavingsGoalsActivity.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_bill) {
+            Intent intent = new Intent(this, BillActivity.class);
+            startActivity(intent);
+        }
+        return false;
     }
 
     private void loadDummyData() {

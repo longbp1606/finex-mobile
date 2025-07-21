@@ -1,11 +1,19 @@
 package com.example.finex_mobile.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +21,7 @@ import com.example.finex_mobile.R;
 import com.example.finex_mobile.entities.budget.Budget;
 import com.example.finex_mobile.database.BudgetDatabaseHelper;
 import com.example.finex_mobile.adapters.BudgetAdapter;
+import com.example.finex_mobile.screens.user_subscriptions.UserSubscriptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import android.app.AlertDialog;
@@ -38,7 +47,13 @@ public class BudgetActivity extends AppCompatActivity implements BudgetAdapter.O
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_budget);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.budget_main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
         recyclerView = findViewById(R.id.recycler_budgets);
         fabAddBudget = findViewById(R.id.fab_add_budget);
@@ -54,6 +69,30 @@ public class BudgetActivity extends AppCompatActivity implements BudgetAdapter.O
         fabAddBudget.setOnClickListener(v -> {
             showBudgetDialog(null);
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.finex_mobile, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.finex_menu_subscription) {
+            Intent intent = new Intent(this, UserSubscriptions.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_budget) {
+            Intent intent = new Intent(this, BudgetActivity.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_saving_goal) {
+            Intent intent = new Intent(this, SavingsGoalsActivity.class);
+            startActivity(intent);
+        } else if (item.getItemId() == R.id.finex_menu_bill) {
+            Intent intent = new Intent(this, BillActivity.class);
+            startActivity(intent);
+        }
+        return false;
     }
 
     private void loadBudgetsFromDb() {
