@@ -3,7 +3,7 @@ package com.example.finex_mobile.screens.user_subscriptions;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,57 +12,52 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.finex_mobile.R;
 import com.example.finex_mobile.entities.Category;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>  {
-    private final List<Category> categories;
-    private final Set<String> selectedIds = new HashSet<>();
 
-    public CategoryAdapter(List<Category> categories) {
-        this.categories = categories;
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.VH> {
+    public interface OnCategoryActionListener {
+        void onEdit(Category category);
+        void onDelete(Category category);
     }
 
-    public Set<String> getSelectedIds() {
-        return selectedIds;
+    private final List<Category> data;
+    private final OnCategoryActionListener listener;
+
+    public CategoryAdapter(List<Category> data, OnCategoryActionListener listener) {
+        this.data = data;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
-    public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category, parent, false);
-        return new CategoryViewHolder(view);
+    public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_category, parent, false);
+        return new VH(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-        Category category = categories.get(position);
-        holder.indexText.setText(String.valueOf(position + 1));
-        holder.nameText.setText(category.getName());
-        holder.languageText.setText(category.getLanguage());
-        holder.checkBox.setChecked(selectedIds.contains(category.getId()));
-
-        holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) selectedIds.add(category.getId());
-            else selectedIds.remove(category.getId());
-        });
+    public void onBindViewHolder(@NonNull VH h, int i) {
+        Category c = data.get(i);
+        h.txtIndex.setText(String.valueOf(i+1));
+        h.txtName.setText(c.getName());
+        h.txtLang.setText(c.getLanguage());
+        h.btnEdit.setOnClickListener(v -> listener.onEdit(c));
+        h.btnDelete.setOnClickListener(v -> listener.onDelete(c));
     }
 
     @Override
-    public int getItemCount() {
-        return categories.size();
-    }
+    public int getItemCount() { return data.size(); }
 
-    public static class CategoryViewHolder extends RecyclerView.ViewHolder {
-        TextView indexText, nameText, languageText;
-        CheckBox checkBox;
-
-        public CategoryViewHolder(@NonNull View itemView) {
-            super(itemView);
-            indexText = itemView.findViewById(R.id.text_index);
-            nameText = itemView.findViewById(R.id.text_name);
-            languageText = itemView.findViewById(R.id.text_language);
-            checkBox = itemView.findViewById(R.id.checkbox_select);
+    static class VH extends RecyclerView.ViewHolder {
+        TextView txtIndex, txtName, txtLang;
+        ImageButton btnEdit, btnDelete;
+        VH(@NonNull View v) {
+            super(v);
+            txtIndex = v.findViewById(R.id.text_index);
+            txtName = v.findViewById(R.id.text_name);
+            txtLang = v.findViewById(R.id.text_language);
+            btnEdit = v.findViewById(R.id.btn_edit);
+            btnDelete = v.findViewById(R.id.btn_delete);
         }
     }
 }

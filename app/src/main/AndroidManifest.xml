@@ -35,8 +35,10 @@
 
         <activity
             android:name=".screens.user_subscriptions.CategoryActivity"
-            android:exported="true" />
 
+            android:exported="true"
+            android:theme="@style/Base.Theme.Finexmobile"
+            />
         <activity
             android:name=".screens.user_subscriptions.BudgetActivity"
             android:exported="true" />
@@ -54,6 +56,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

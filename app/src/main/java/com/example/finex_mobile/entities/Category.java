@@ -1,3 +1,4 @@
+// Category.java
 package com.example.finex_mobile.entities;
 
 public class Category {
@@ -11,15 +12,12 @@ public class Category {
         this.language = language;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 
-    public String getLanguage() {
-        return language;
-    }
+    public String getLanguage() { return language; }
+    public void setLanguage(String language) { this.language = language; }
 }

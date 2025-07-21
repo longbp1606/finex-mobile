@@ -2,21 +2,24 @@ package com.example.finex_mobile.screens.user_subscriptions;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.Toast;
+import android.widget.EditText;
+import android.widget.ImageButton;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.finex_mobile.R;
+import com.example.finex_mobile.entities.CategoryDAO;
 import com.example.finex_mobile.entities.Category;
 
-import java.util.ArrayList;
 import java.util.List;
-public class CategoryActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private ProgressBar progressBar;
+
+public class CategoryActivity extends AppCompatActivity implements CategoryAdapter.OnCategoryActionListener {
+    private RecyclerView recycler;
+    private ImageButton btnAdd;
+    private CategoryDAO dao;
     private CategoryAdapter adapter;
 
     @Override
@@ -24,30 +27,63 @@ public class CategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
-        recyclerView = findViewById(R.id.recycler_category);
+        dao = new CategoryDAO(this);
+        recycler = findViewById(R.id.recycler_category);
+        btnAdd = findViewById(R.id.btn_add_category);
+
+        recycler.setLayoutManager(new LinearLayoutManager(this));
+        loadData();
 //        progressBar = findViewById(R.id.progress_bar);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new CategoryAdapter(new ArrayList<>());
-        recyclerView.setAdapter(adapter);
-
-        fetchCategories();
+        btnAdd.setOnClickListener(v -> showDialog(null));
     }
 
-    private void fetchCategories() {
-        progressBar.setVisibility(View.VISIBLE);
+    private void loadData() {
+        List<Category> list = dao.getAllCategories();
+        adapter = new CategoryAdapter(list, this);
+        recycler.setAdapter(adapter);
+    }
 
-        // TODO: Replace with real API call using Retrofit or similar
-        recyclerView.postDelayed(() -> {
-            List<Category> dummyData = new ArrayList<>();
-            dummyData.add(new Category("1", "Groceries", "EN"));
-            dummyData.add(new Category("2", "Transport", "EN"));
-            dummyData.add(new Category("3", "Ăn uống", "VI"));
+    private void showDialog(Category cat) {
+        boolean isEdit = cat != null;
+        EditText input = new EditText(this);
+        input.setHint("Name");
+        if (isEdit) input.setText(cat.getName());
 
-            adapter = new CategoryAdapter(dummyData);
-            recyclerView.setAdapter(adapter);
+        new AlertDialog.Builder(this)
+                .setTitle(isEdit ? "Edit Category" : "Add Category")
+                .setView(input)
+                .setPositiveButton("Save", (d, w) -> {
+                    String name = input.getText().toString().trim();
+                    if (name.isEmpty()) return;
+                    if (isEdit) {
+                        cat.setName(name);
+                        dao.updateCategory(cat);
+                    } else {
+                        dao.insertCategory(new Category(null, name, "EN"));
+                    }
+                    loadData();
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
 
-            progressBar.setVisibility(View.GONE);
-        }, 1000);
+    @Override
+    public void onEdit(Category category) {
+        showDialog(category);
+    }
+
+    @Override
+    public void onDelete(Category category) {
+        new AlertDialog.Builder(this)
+                .setTitle("Delete")
+                .setMessage("Delete this category?")
+                .setPositiveButton("Yes", (d, w) -> {
+                    dao.deleteCategory(category.getId());
+                    loadData();
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 }
+
