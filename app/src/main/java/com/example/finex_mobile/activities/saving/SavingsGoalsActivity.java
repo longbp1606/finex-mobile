@@ -64,6 +64,7 @@ public class SavingsGoalsActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_savings_goals);
+        setTitle("Saving Goals");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.savings), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
