@@ -24,7 +24,7 @@ public class SubscriptionDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_subscription_detail);
-        setTitle("Subscriptions");
+        getSupportActionBar().hide(); // Hide the action bar for a more modern look
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -41,6 +41,9 @@ public class SubscriptionDetail extends AppCompatActivity {
         subscriptionDetailName.setText(currentSubscription.getName());
         subscriptionDetailPrice.setText(currentSubscription.getPrice() + " USD / Month");
         subscriptionDetailDescription.setText(currentSubscription.getDescription());
+        
+        // Set up back button click listener
+        findViewById(R.id.backButton).setOnClickListener(v -> onBackPressed());
     }
 
     public void handleBuySubscriptionClick(View view) {

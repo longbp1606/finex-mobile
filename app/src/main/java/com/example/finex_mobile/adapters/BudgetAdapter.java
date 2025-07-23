@@ -51,13 +51,13 @@ public class BudgetAdapter extends RecyclerView.Adapter<BudgetAdapter.BudgetView
         holder.btnDetails.setPaintFlags(holder.btnDetails.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         holder.btnEdit.setPaintFlags(holder.btnEdit.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-        holder.btnDetails.setOnClickListener(v -> {
-            android.content.Context context = holder.itemView.getContext();
-            android.content.Intent intent = new android.content.Intent(context, TransactionActivity.class);
-            intent.putExtra("budgetId", budget.getId());
-            intent.putExtra("budgetTitle", budget.getTitle());
-            context.startActivity(intent);
-        });
+//        holder.btnDetails.setOnClickListener(v -> {
+//            android.content.Context context = holder.itemView.getContext();
+//            android.content.Intent intent = new android.content.Intent(context, TransactionActivity.class);
+//            intent.putExtra("budgetId", budget.getId());
+//            intent.putExtra("budgetTitle", budget.getTitle());
+//            context.startActivity(intent);
+//        });
         holder.btnEdit.setOnClickListener(v -> listener.onEdit(budget));
         holder.btnDelete.setOnClickListener(v -> {
             new AlertDialog.Builder(holder.itemView.getContext())

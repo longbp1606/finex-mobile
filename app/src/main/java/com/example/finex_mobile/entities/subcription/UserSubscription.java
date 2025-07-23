@@ -13,11 +13,6 @@ public class UserSubscription {
             List<Subscription> subscriptionList = Subscription.getSupscriptionList();
 
             userSubscriptionList = new ArrayList<>();
-            userSubscriptionList.add(new UserSubscription(subscriptionList.get(0), "10:00 24/06/2025", "10:00 24/07/2025", userLong));
-            userSubscriptionList.add(new UserSubscription(subscriptionList.get(1), "10:00 24/06/2025", "10:00 24/06/2025", userLong));
-            userSubscriptionList.add(new UserSubscription(subscriptionList.get(2), "10:00 24/06/2025", "10:00 24/06/2025", userLong));
-            userSubscriptionList.add(new UserSubscription(subscriptionList.get(3), "10:00 24/06/2025", "10:00 24/06/2025", userLong));
-            userSubscriptionList.add(new UserSubscription(subscriptionList.get(4), "10:00 24/06/2025", "10:00 24/06/2025", userLong));
         }
         return userSubscriptionList;
     }

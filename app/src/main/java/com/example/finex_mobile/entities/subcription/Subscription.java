@@ -8,18 +8,9 @@ public class Subscription {
     public static List<Subscription> getSupscriptionList() {
         if (supscriptionList == null) {
             supscriptionList = new ArrayList<>();
-            supscriptionList.add(new Subscription("Subscription 1", 20, "This is subscription description"));
-            supscriptionList.add(new Subscription("Subscription 2", 20, "This is subscription description"));
-            supscriptionList.add(new Subscription("Subscription 3", 20, "This is subscription description"));
-            supscriptionList.add(new Subscription("Subscription 1", 20, "This is subscription description"));
-            supscriptionList.add(new Subscription("Subscription 2", 20, "This is subscription description"));
-            supscriptionList.add(new Subscription("Subscription 3", 20, "This is subscription description"));
-            supscriptionList.add(new Subscription("Subscription 1", 20, "This is subscription description"));
-            supscriptionList.add(new Subscription("Subscription 2", 20, "This is subscription description"));
-            supscriptionList.add(new Subscription("Subscription 3", 20, "This is subscription description"));
-            supscriptionList.add(new Subscription("Subscription 1", 20, "This is subscription description"));
-            supscriptionList.add(new Subscription("Subscription 2", 20, "This is subscription description"));
-            supscriptionList.add(new Subscription("Subscription 3", 20, "This is subscription description"));
+            supscriptionList.add(new Subscription("Basic Plan", 8, "Basic functions"));
+            supscriptionList.add(new Subscription("Pro Plan", 15, "Provide you with more advanced features"));
+            supscriptionList.add(new Subscription("Ultimate Plan", 30, "Unlock unlimited features"));
         }
         return supscriptionList;
     }
