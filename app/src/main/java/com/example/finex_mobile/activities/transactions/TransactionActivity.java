@@ -13,8 +13,13 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.finex_mobile.R;
@@ -46,7 +51,14 @@ public class TransactionActivity extends AppCompatActivity implements Transactio
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_transaction);
+        setTitle("Transaction");
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.transaction_main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
         recyclerView = findViewById(R.id.recycler_transactions);
         edtSearch = findViewById(R.id.edt_search);
@@ -61,7 +73,7 @@ public class TransactionActivity extends AppCompatActivity implements Transactio
         budgetId = intent.getStringExtra("budgetId");
         budgetTitle = intent.getStringExtra("budgetTitle");
         if (!TextUtils.isEmpty(budgetTitle)) {
-            tvTitle.setText(budgetTitle + " Transactions");
+            tvTitle.setText("Transactions");
         }
 
         transactions = new ArrayList<>();
